@@ -1,0 +1,49 @@
+Displaying images:
+- each image has a tag and attribute. 
+- Only one image with a given tag can be shown at the same time.
+
+  scene {image} - clears all images and displays a background image. 
+  show {image} - shows a sprite on top of the background, and changes the displaying sprite
+  hide {image} - hides the image (used when character leaves but scene doesn't change)
+  image {attribute tag} = "image.png" - used to define attribute tag. Renpy does this automatically
+
+
+Transitions
+  with fade - fades the screen to black, and then fades in the new screen.
+  with dissolve -  dissolves from one screen to the next.
+
+Positions
+  -all images are center by default. To change this, 
+  at right - spawns in images at right
+  at left - spawins in images at left
+  at center - for centered horizontally (the default), 
+  at truecenter - for centered horizontally and vertically.
+
+Music and Soudn
+
+  play music {music file}  - plays music
+  play music {music file} fadeout 1.0 fadein 1.0 - specifies when the music fades out and in
+  queue music {music file} - plays this track after current track
+  stop music - stops music
+  play sound "audio/effect.ogg" - plays sound effects. Does not loop like music
+
+Pause Statement
+  pause
+  pause 3.0s
+
+Ending the Game
+  ".:. Good Ending."
+  return
+  - the return statement ends the game. Recommended you have a comment like above, such as good ending. 
+
+Menus, Labels, and Jumps
+  https://www.renpy.org/doc/html/quickstart.html#menus-labels-and-jumps
+  the menu statment represents a game choice. Check link for details. 
+
+  labels - the sections that the story happens in
+  menu: - signifies that the user gets a choice
+  jump - jump to the label based on what the user selected
+
+
+
+
