@@ -8,8 +8,11 @@ define m = Character("Player") #chnage this to support self insert
 define prof = Character("Prof Bruno")
 image bg duffield = Frame("Duffield-ext-pano_0.jpg")
 image bg warren = Frame("warren_hall.jpg")
-
-
+image richard neutral= "richard.png"
+image bg ag = Frame("Cornell_Ag_quad.jpg")
+image bg golf = Frame("RTJ3.jpg")
+image bg north = Frame("north.jpg")
+image bg restaurant = Frame("taverna-banfi.jpg")
 # The game starts here.
 
 label start:
@@ -69,6 +72,9 @@ label AEM_Class:
 
 label Richard_in_AEM: 
     "You pick to the right."
+    show richard neutral at truecenter: 
+        zoom 0.5
+    
     m "Hey nice to meet you. I’m PLAYER, what’s your major? "
     r "Hey I’m a Business major and a pro golfer, look at my triceps. Here’s my business card and $100 "
     m "Money? You must be really rich"
@@ -76,12 +82,15 @@ label Richard_in_AEM:
     prof "*AHEM*, we have business to attend to!"
 
     m "*thinking* dang what a jock, I guess he liked when i gave him a compliment on his vast generational wealth."
+    hide richard neutral
 
     menu:
         "Leave Class":
             jump Ask_Richard_out
 
 label Ask_Richard_out: 
+    scene bg ag
+
     r "Oh hey bro what’s up!"
     m "*thinking* wow, Richard seems like a really cool fella, I should ask him to hang and get to know him better!"
 
@@ -97,24 +106,6 @@ label Ask_Richard_out:
         "We should go shopping.":
             jump richard_shopping
 
-
-label richard_golf:
-    m "Would you and your incredible triceps like to accompany me on the golfing green this weekend?"
-    r "YAS fam, can’t wait to show you my swings! *skip to next day*"
-
-    "You’ve arrived, and see that Richard has already begun hitting balls. You walk up to him. "
-    r "hey took you long enough I’ve already scored a bogie. What did you think of that?"
-    
-    menu:
-        "That was sooo cool":
-            jump richard_golf2
-
-        "I can do better":
-            jump richard_golf2
-
-        "Why did you hit the ball what did it ever do to you?":
-            jump richard_golf2
-
 label richard_library:
     m "Want to go study some business texts and such in Olin Library?"
     r "Bruh. I can’t read. Not even a little bit. *looks sad and dejected*"
@@ -129,19 +120,236 @@ label richard_shopping:
     ".:. Bad Ending."
     return
 
-label richard_golf2: 
+label richard_golf:
+    scene bg golf
+    m "Would you and your incredible triceps like to accompany me on the golfing green this weekend?"
+    r "YAS fam, can’t wait to show you my swings! *skip to next day*"
+
+    "You’ve arrived, and see that Richard has already begun hitting balls. You walk up to him. "
+    r "hey took you long enough I’ve already scored a bogie. What did you think of that?"
+    
+    menu:
+        "That was sooo cool":
+            jump richard_golf1A
+
+        "I can do better": 
+            jump richard_golf1B
+
+        "Why did you hit the ball what did it ever do to you?":
+            jump richard_golf1C
+
+label richard_golf1A: 
+    m "Wow Richard! You have insane golf skills, you could be a pro!"
+    r "Aww, thanks babe."
+
     "richard visibly blushes. hehehehehe"
+
+    jump richard_golf2
+
+label richard_golf1B: 
+    m "Hmm. Ametuer. Let me show you how a real golfer gets it done. 
+    *grab club from him*"
+    r " *pulling club away* How DARE you!"
+    "richard frowns"
+
+    jump richard_golf2
+
+
+label richard_golf1C: 
+    m "Hey! Why’d you hit that ball?! What did he ever do to you?!"
+    r "*side eye* you are an odd egg."
+    
+    jump richard_golf2
+
+label richard_golf2: 
     r "Want to take a swing?"
 
     menu: 
         "Yes, please show me the ropes!":   
-            jump richard_golf3     
+            jump richard_golf2A     
 
         "no thanks":
-            jump no_golf
+            jump richard_golf2B
 
-#         "*get nervous*"
-#             jump
+        "*get nervous*":
+            jump richard_golf2C
+
+label richard_golf2A: 
+    m "I cannot play golf, please guide me through the swing slowly with your strong arms. "
+    r "*blushing* Oh, why of course madame!"
+
+    jump richard_golf3A
+
+label richard_golf2B:
+    m "No thanks. I am against the playing of golf for the environmental effects of the watering of golf courses."
+    m "This entire establishment is a waste of our local freshwater resources and I will not stand for it. "
+    r "*shocked* How dare you insult my favorite pastime!"
+    r "You are obviously uncultured if you can’t appreciate the finer things in life like the joy of hitting golf balls!"
+
+    jump richard_golf3B
+
+label richard_golf2C:
+    "You get nervous and your hands get weirdly sweaty and you drop the golf club on your foot and get an ouchie"
+    r "*side eye* Well you’re rather uncoordinated aren’t you…"
+    
+    jump richard_golf3B
+
+label richard_golf3A:
+    "You two spent the afternoon drilling shots."
+    "Richard seemed to have a good time, I should ask him on a second date."
+    r "I win! It’s getting late! I must head to practice now, but that was super fun."
+    jump richard_dinner
+
+label richard_golf3B:
+    "Richard did not seem to have a good time"
+    r "You are not fun to play golf with whatsoever. Bye forever"
+
+    ".:. Bad Ending."
+    return
+
+label richard_dinner: 
+    scene bg north
+    m "Richard is so CUTE!! I want to meet with Richard again, I’ll go ask him out!"
+
+    menu: 
+        "Call him":
+            jump richard_dinner_A
+
+        "Go to his house":
+            jump richard_dinner_B
+
+        "Be too shy":
+            jump richard_dinner_C
+
+label richard_dinner_A:
+    m "Hi Richard! I-"
+    r "Oh Player! So good of you to call. I was just thinking about calling you. How’ve you been?"
+    r " Nevermind that… I have ultradeluxe reservations at Taverna Banfi in Cornell’s own Statler Hotel this evening, would you care to join me?"
+    
+    jump richard_dinner_1
+
+label richard_dinner_B:
+    m "Hi Richard! I just thought I’d come over-"
+    r " Oh my my! What are you doing in my palatial home unannounced!"
+    r "Well, that’s one way to get a man out on a date…does Taverna Banfi for 2 interest you?"
+
+    jump richard_dinner_1
 
 
-# label richard3:
+label richard_dinner_C:
+    "You are too shy to talk to Richard and never speak to him ever again."
+    "Richard sees you in class. His eyes pass over you as he goes to greet CRC-chan, the prettiest girl in school."
+    "He will never speak to you again"
+
+    ".:. Bad Ending."
+    return
+
+label richard_dinner_1: 
+    scene bg restaurant
+    "Richard elegantly awaits you at the finest table in all of Taverna Banfi."
+    r "Hello (BLANK). Come, dine with me."
+
+    "What will you order?"
+    menu: 
+        "Pasta with butter and choccy milk from the kids menu":
+            jump richard_dinner_1A
+        "Just a water with a lime slice":
+            jump richard_dinner_1B
+        "A fine steak and a 1969 vintage Dom Peringon Champagne, a wine far out of your tax bracket":
+            jump richard_dinner_1C
+
+label richard_dinner_1A: 
+    "Ordering from the children’s menu?"
+    "I’m afraid you can’t do that dear, it’s for 12 and under only. You have no class."
+    
+    ".:. Bad Ending."
+    return
+label richard_dinner_1B: 
+    r " Huh. That’s a strange thing to order at a restaurant such as this."
+    jump richard_dinner_2
+
+label richard_dinner_1C:
+    r "What fine exquisite taste you have madame! I commend you. (lifts glass like Jay Gatsby)"
+    jump richard_dinner_2
+
+label richard_dinner_2:
+    r "It’s nice to take a break after working so hard on my money management asset selling stock rising business."
+    r "I love my work, but sometimes it really takes a toll."
+
+    menu: 
+        "I want to support him!":
+            jump richard_dinner_2A
+
+        "What does your business do again?":
+            jump richard_dinner_2B
+
+        "Give him advice on his vague business plans.":
+            jump richard_dinner_2C
+
+label richard_dinner_2A:
+    "Richard drawing blushes really hard"
+    m "I want to support you in all your business endeavors!"
+    r "*blushes super hard* Thanks, that means a lot."
+
+    jump richard_dinner_3
+
+label richard_dinner_2B:
+    m "Wait a minute… what does your money management asset selling stock rising business actually do again?"
+    r "Oh… you dont know?"
+    r "But I talk about it constantly to the point where it may be considered slightly annoying… (sad and dejected)"
+    r "Oh well, let me just spend another hour re-explaining to you…"
+    jump richard_dinner_3
+
+label richard_dinner_2C:
+    m "I understand you want to build your business, but are you sure that this company has an ethical basis in today’s modern society?" 
+    m "Are you really ready to brave the treachourous pitfalls of today’s economy and bring a multifaceted business such as this into the market?"
+    m "I think there may be some things you should rethink about this business plan."
+    r " You think you can tell me how to run my business! I hate you! We’re over!"
+    "richard is sobbing because he got he feelings hurt"
+
+    ".:. Bad Ending."
+    return
+
+label richard_dinner_3: 
+    "The lights dim. Richard leans in close and his eyes sparkle in the candlelight. What a romantic moment!"
+    "I should be really careful with my words."
+    r "That means a lot to me. People are always shooting my ideas down."
+    r "I want to find someone who will never stop me from pursuing my dreams of obtaining unimaginable wealth."
+    menu: 
+        "Profess your Love!":
+            jump richard_dinner_3A
+
+        "Stay just friends.":
+            jump richard_dinner_3B
+
+        "REJECT HIS EXISTENCE AND RUIN HIS DREAMS AFTER PRETENDING TO BE HIS FRIEND":
+            jump richard_dinner_3C
+
+label richard_dinner_3A:
+    m "I will always support you Richard, because I LOVE you!"
+    "His eyes sparkle with love! He leans in for a kiss. The kiss tastes metallic."
+    jump Good_End
+
+label richard_dinner_3B:
+    m "Yeah I support you in your business thingamijiggy. I’ll always be your good pal buddy!"
+    r "Oh… um… you’re my friend too… buddy. (he winces)"
+    jump Bad_End
+
+label richard_dinner_3C:
+    scene bg duffield
+
+    m "I have something to tell you sweetheart."
+    m "I was only talking to you in order to hear all of your business plans and use them for my competing business in the same market! Get owned Richie!"
+    "You abandon Richard at the table as he cries like a baby, his life’s dreams shattered."
+    jump Bad_End
+
+label Bad_End: 
+    scene bg duffield
+
+    "You have betrayed Richard’s trust and he hates you forever. Nice going, dumbass."
+    return
+
+label Good_End: 
+    scene bg duffield
+    "You and Richard walk to Duffield Atrium and get married and live happily ever after."
+    "THE END - RICHARD ROUTE  GOOD ENDING."
