@@ -1,22 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 208, in script
-    jump richard_go6lf2B
-ScriptError: could not find label 'richard_go6lf2B'.
+  File "game/script.rpy", line 89, in script
+    m "Hey nice to meet you. I’m %(m), what’s your major? "
+ValueError: unsupported format character ',' (0x2c) at index 30
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 208, in script
-    jump richard_go6lf2B
-  File "C:\Users\Ruby W\renpy-8.1.3-sdk\renpy\ast.py", line 1992, in execute
-    rv = renpy.game.script.lookup(target)
-  File "C:\Users\Ruby W\renpy-8.1.3-sdk\renpy\script.py", line 1013, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'richard_go6lf2B'.
+  File "game/script.rpy", line 89, in script
+    m "Hey nice to meet you. I’m %(m), what’s your major? "
+  File "C:\Users\Ruby W\renpy-8.1.3-sdk\renpy\ast.py", line 930, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "C:\Users\Ruby W\renpy-8.1.3-sdk\renpy\exports.py", line 1463, in say
+    what = what % tag_quoting_dict
+ValueError: unsupported format character ',' (0x2c) at index 30
 
 Windows-10-10.0.22621 AMD64
 Ren'Py 8.1.3.23091805
 CRC RIZZ 1.0
-Tue Oct 31 18:29:58 2023
+Thu Nov  2 18:32:51 2023
