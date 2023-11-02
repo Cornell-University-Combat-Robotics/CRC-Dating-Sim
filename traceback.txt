@@ -1,26 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 11, in script
-    image richard neutral= SpriteManager.create("richard")
-  File "game/script.rpy", line 11, in <module>
-    image richard neutral= SpriteManager.create("richard")
-TypeError: create() missing 1 required positional argument: 'd'
+  File "game/script.rpy", line 208, in script
+    jump richard_go6lf2B
+ScriptError: could not find label 'richard_go6lf2B'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 11, in script
-    image richard neutral= SpriteManager.create("richard")
-  File "C:\Users\Ruby W\renpy-8.1.3-sdk\renpy\ast.py", line 1237, in execute
-    img = renpy.python.py_eval_bytecode(self.code.bytecode)
-  File "C:\Users\Ruby W\renpy-8.1.3-sdk\renpy\python.py", line 1146, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 11, in <module>
-    image richard neutral= SpriteManager.create("richard")
-TypeError: create() missing 1 required positional argument: 'd'
+  File "game/script.rpy", line 208, in script
+    jump richard_go6lf2B
+  File "C:\Users\Ruby W\renpy-8.1.3-sdk\renpy\ast.py", line 1992, in execute
+    rv = renpy.game.script.lookup(target)
+  File "C:\Users\Ruby W\renpy-8.1.3-sdk\renpy\script.py", line 1013, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'richard_go6lf2B'.
 
 Windows-10-10.0.22621 AMD64
 Ren'Py 8.1.3.23091805
 CRC RIZZ 1.0
-Sun Sep 24 20:47:40 2023
+Tue Oct 31 18:29:58 2023
