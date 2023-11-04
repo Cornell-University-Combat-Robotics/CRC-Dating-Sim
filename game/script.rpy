@@ -19,6 +19,8 @@ image richard proud= "richard_proud.png"
 image richard worried= "richard_worried.png"
 image richard love = "richard_love.png"
 image richard sad = "richard_sad.png"
+image richard blush = "richard_blush.png"
+image richard fuckboy = "richard_fuckboy.png"
 
 # The game starts here.
 label start:
