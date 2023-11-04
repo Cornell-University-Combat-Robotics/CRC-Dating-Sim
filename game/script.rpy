@@ -92,12 +92,18 @@ label Richard_in_AEM:
     m "Hey, nice to meet you. I'm [m], what's your major? "
     r "Hey! I'm a Business major and a pro golfer, look at my triceps. Here's my business card and $100."
     m "Money? You must be really rich!"
-    
-    r "*visible blush* Actually my friends call me Richard. *wink w sparkle*"
+    hide richard neutral
+
+    show richard fuckboy at truecenter: 
+        zoom 0.5
+    r "Actually my friends call me Richard."
+    hide richard fuckboy
+
+    show bruno neutral at truecenter
     prof "AHEM! We have business to attend to!"
+    hide bruno neutral
 
     m "*thinking* Dang what a jock, I guess he liked when I gave him a compliment on his vast generational wealth."
-    hide richard neutral
 
     menu:
         "Leave Class":
@@ -226,7 +232,7 @@ label richard_golf2A:
         zoom 0.5
     $ points += 1
     m "Help me Richard, I cannot play golf, please guide me through the swing slowly with your strong arms!"
-    r "*blushing* Oh, why of course madame!"
+    r "*blushing* Oh, why of course my dear!"
     hide richard proud
     jump richard_golf3A
 
@@ -300,7 +306,7 @@ label richard_dinner_B:
     n "You walk to Richard's dorm."
     m "Hi Richard! I just thought I'd come over-"
     r "Oh my my! What are you doing in my palatial home unannounced?"
-    r "Well, that's one way to get a man out on a date... does Taverna Banfi for 2 interest you?"
+    r "Well, that's one way to get a man out on a date... does Taverna Banfi for two interest you?"
     m "Oh.. why yes!"
     hide richard neutral
 
@@ -378,9 +384,13 @@ label richard_dinner_2:
 
 label richard_dinner_2A:
     $ points += 1
-    show richard love at truecenter:
+    show richard at truecenter:
         zoom 0.5
     m "I want to support you in all your business endeavors!"
+    hide richard
+
+    show richard love at truecenter:
+        zoom 0.5
     r "*blushes super hard* Thanks, that means a lot."
     hide richard love
     jump richard_dinner_3
