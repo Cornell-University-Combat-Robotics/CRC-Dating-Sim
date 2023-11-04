@@ -45,7 +45,7 @@ label start:
 
     $ m = m.strip()
 
-    m "Hehe. Let's check my schedule. I forgot what class I have first."
+    m "Alright, let me check my schedule. I forgot what class I have first."
 
     # This ends the game.
     # return
@@ -105,14 +105,14 @@ label Richard_in_AEM:
     m "Dang what a jock, I guess he liked when I gave him a compliment on his vast generational wealth."
 
     menu:
-        "Leave Class":
+        "Leave Class and Search for Richard":
             jump Ask_Richard_out
 
 label Ask_Richard_out: 
     scene bg ag
     show richard neutral at truecenter: 
         zoom 0.5
-    r "Oh hey bro! What's up?"
+    r "Oh hey! What's up?"
     m "*thinking* Wow, Richard seems like a really cool fella, I should ask him to hang and get to know him better!"
 
     "I should ask Richard to:"
@@ -131,12 +131,12 @@ label Ask_Richard_out:
 label richard_library:
     show richard neutral at truecenter: 
         zoom 0.5
-    $ points -= 1
     m "Let's study in the library. There are some business texts and such in Olin Library!"
     hide richard neutral
     show richard angry at truecenter: 
         zoom 0.5
     r "Bruh. I can't read. Not even a little bit."
+    $ points -= 1
     hide richard angry
     jump Bad_End
 
@@ -163,23 +163,27 @@ label richard_shopping_end:
     m "Buy me Prada... Balenciaga."
     hide richard worried
     show richard angry at truecenter: 
+        zoom 0.5
     r "You're just using me for my money."
     r "Goodbye forever."
     hide richard angry
     jump Bad_End
 
 label richard_golf:
-    $ points += 1
     show richard neutral at truecenter: 
         zoom 0.5
     m "Come golfing with me. I would like you and your incredible triceps like to accompany me on the golfing green this weekend!"
-    r "YAS fam, can't wait to show you my swings!"
     hide richard neutral
-    scene bg golf
     show richard proud at truecenter: 
         zoom 0.5
+    r "YAS fam, can't wait to show you my swings!"
+    $ points += 1
+    hide richard proud
+    scene bg golf
     n "The next day..."
     n "You've arrived, and see that Richard has already begun hitting balls. You walk up to him."
+    show richard proud at truecenter: 
+        zoom 0.5
     r "Hey, took you long enough! I've already scored a bogie. What did you think of that?"
     hide richard proud
     menu:
@@ -197,28 +201,34 @@ label richard_golf1A:
         zoom 0.5
     m "That was sooo cool! Wow Richard! You have insane golf skills, you could be a pro!"
     hide richard neutral
+    show richard blush at truecenter: 
+        zoom 0.5
     r "Aww, thanks babe."
     $ points += 1
-
-    r "*Richard visibly blushes* Hehehehehe."
-    hide richard neutral
+    hide richard blush
     jump richard_golf2
 
 label richard_golf1B: 
-    show richard worried at truecenter: 
+    show richard neutral at truecenter: 
         zoom 0.5
-    m "I can do better, amateur. Let me show you how a real golfer gets it done. *grab club from him*"
-    r " *pulling club away* How DARE you!"
-    $ points -= 1
+    m "I can do better, amateur. Let me show you how a real golfer gets it done."
     hide richard worried
-    jump richard_golf2
-
-
-label richard_golf1C: 
-    m "Hey! Why'd you hit that ball?! What did it ever do to you?!"
+    n "You forcefully grab the club from Richard."
     show richard angry at truecenter: 
         zoom 0.5
-    r "*side eye* You are an odd egg."
+    r "How DARE you!"
+    $ points -= 1
+    hide richard angry
+    jump richard_golf2
+
+label richard_golf1C: 
+    show richard neutral at truecenter: 
+        zoom 0.5
+    m "Hey! Why'd you hit that ball?! What did it ever do to you?!"
+    hide richard neutral
+    show richard angry at truecenter: 
+        zoom 0.5
+    r "You are an odd egg."
     hide richard angry
     jump richard_golf2
 
@@ -238,22 +248,28 @@ label richard_golf2:
             jump richard_golf2C
 
 label richard_golf2A: 
+    show richard neutral at truecenter: 
+        zoom 0.5
+    m "Help me Richard, I cannot play golf, please guide me through the swing slowly with your strong arms!"
+    hide richard neutral
     show richard proud at truecenter: 
         zoom 0.5
+    r "Oh, why of course my dear!"
     $ points += 1
-    m "Help me Richard, I cannot play golf, please guide me through the swing slowly with your strong arms!"
-    r "*blushing* Oh, why of course my dear!"
     hide richard proud
     jump richard_golf3A
 
 label richard_golf2B:
-    show richard angry at truecenter: 
+    show richard worried at truecenter: 
         zoom 0.5
-    $ points -= 1
     m "No, thanks. I am against the playing of golf for the environmental effects of the watering of golf courses."
     m "This entire establishment is a waste of our local freshwater resources and I will not stand for it."
-    r "*shocked* How dare you insult my favorite pastime!"
+    hide richard worried
+    show richard angry at truecenter: 
+        zoom 0.5
+    r "How dare you insult my favorite pastime!"
     r "You are obviously uncultured if you can't appreciate the finer things in life like the joy of hitting golf balls!"
+    $ points -= 1
     hide richard angry
     jump richard_golf3B
 
@@ -266,10 +282,9 @@ label richard_golf2C:
     jump richard_golf3A
 
 label richard_golf3A:
+    n "You two spent the afternoon drilling shots. Richard seemed to have a good time."
     show richard proud at truecenter: 
         zoom 0.5
-    n "You two spent the afternoon drilling shots."
-    m "*thinking* Richard seemed to have a good time, I should ask him on a second date."
     r "I win! It's getting late! I must head to practice now, but that was super fun."
     hide richard proud
     jump richard_dinner
@@ -284,9 +299,7 @@ label richard_golf3B:
 
 label richard_dinner: 
     scene bg north
-    
-    m "Richard is so CUTE!! I want to meet with Richard again, I'll go ask him out!"
-
+    m "Richard is so CUTE!! I want to meet with Richard again, I should ask him out on a second date!"
     menu: 
         "Call him":
             jump richard_dinner_A
@@ -298,30 +311,29 @@ label richard_dinner:
             jump richard_dinner_C
 
 label richard_dinner_A:
+    n "You dial Richard's number that you found on Student Center."
     show richard neutral at truecenter: 
         zoom 0.5
-    $ points += 1
-
-    n "You dial Richard's number that you found on Student Center."
     m "Hi Richard! I-"
     r "Oh [m]! So good of you to call. I was just thinking about calling you. How've you been?"
+    $ points += 1
     r " Nevermind that... I have ultradeluxe reservations at Taverna Banfi in Botnell's own Batler Hotel this evening, would you care to join me?"
     hide richard neutral
-
     jump richard_dinner_1
 
 label richard_dinner_B:
+    n "You walk to Richard's dorm."
     show richard neutral at truecenter: 
         zoom 0.5
-    n "You walk to Richard's dorm."
     m "Hi Richard! I just thought I'd come over-"
+    hide richard neutral
+    show richard fuckboy at truecenter: 
+        zoom 0.5
     r "Oh my my! What are you doing in my palatial home unannounced?"
     r "Well, that's one way to get a man out on a date... does Taverna Banfi for two interest you?"
     m "Oh.. why yes!"
-    hide richard neutral
-
+    hide richard fuckboy
     jump richard_dinner_1
-
 
 label richard_dinner_C:
     n "You are too shy to talk to Richard and never speak to him ever again."
