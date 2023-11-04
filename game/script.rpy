@@ -3,8 +3,9 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
+define m = Character("Player") #change this to support self insert
+define n = Character("Narrator") 
 define r = Character("Richard")
-define m = Character("Player") #chnage this to support self insert 
 define prof = Character("Prof Bruno")
 image bruno neutral = "bruno.png"
 image bg duffield = Frame("Duffield-ext-pano_0.jpg")
@@ -34,7 +35,7 @@ label start:
     # directory.
 
     # These display lines of dialogue.
-    "Welcome to Botnell University! Here, all the smartest robots come to learn and prepare themselves to get a minimum wage job."
+    n "Welcome to Botnell University! Here, all the smartest robots come to learn and prepare themselves to get a minimum wage job."
 
     m "Wow, the first day of class. I am so excited for my freshman year at Cornell University!"
 
@@ -60,7 +61,7 @@ label AEM_Class:
     # directory.
 
     # These display lines of dialogue.
-    "You are walking to your AEM Class..."
+    n "You are walking to your AEM Class..."
 
     m "Marketing! I am excited for class. I hope my professor is a good lecturer."
 
@@ -68,8 +69,8 @@ label AEM_Class:
 
     m "It's the first day. I should try to make new friends..."
     show bruno neutral at truecenter
-    "In class, Professor Bruno talks about how money is good."
-    "You look around and there is ??? to your left and one orange robot to your right."
+    n "In class, Professor Bruno talks about how money is good."
+    n "You look around and there is ??? to your left and one orange robot to your right."
     hide bruno neutral
     menu:
         "Talk to the robot to the left":
@@ -82,7 +83,7 @@ label AEM_Class:
     # return
 
 label Richard_in_AEM: 
-    "You pick to the right."
+    n "You pick to the right."
     show richard neutral at truecenter: 
         zoom 0.5
     
@@ -127,9 +128,7 @@ label richard_library:
     m "Want to go study some business texts and such in Olin Library?"
     r "Bruh. I can't read. Not even a little bit. *looks sad and dejected*"
     hide richard angry
-
-    ".:. Bad Ending."
-    return
+    jump Bad_End
 
 label richard_shopping:
     show richard worried at truecenter: 
@@ -150,12 +149,8 @@ label richard_shopping_end:
     show richard angry at truecenter: 
     r "You're just using me for my money."
     r "Goodbye forever."
-
-    ".:. Bad Ending."
     hide richard angry
-
-    return
-
+    jump Bad_End
 
 label richard_golf:
     $ points += 1
@@ -165,7 +160,7 @@ label richard_golf:
     scene bg golf
     show richard proud at truecenter: 
         zoom 0.5
-    "You've arrived, and see that Richard has already begun hitting balls. You walk up to him."
+    n "You've arrived, and see that Richard has already begun hitting balls. You walk up to him."
     r "Hey, took you long enough! I've already scored a bogie. What did you think of that?"
     hide richard proud
     menu:
@@ -186,17 +181,16 @@ label richard_golf1A:
     r "Aww, thanks babe."
     $ points += 1
 
-    "Richard visibly blushes. hehehehehe"
+    r "*Richard visibly blushes* Hehehehehe."
     hide richard neutral
     jump richard_golf2
 
 label richard_golf1B: 
     show richard worried at truecenter: 
         zoom 0.5
-    m "Hmm, amateur. Let me show you how a real golfer gets it done. 
-    *grab club from him*"
+    m "Hmm, amateur. Let me show you how a real golfer gets it done. *grab club from him*"
     r " *pulling club away* How DARE you!"
-    "richard frowns"
+    n "richard frowns"
     $ points -= 1
     hide richard worried
     jump richard_golf2
@@ -248,7 +242,7 @@ label richard_golf2B:
 label richard_golf2C:
     show richard worried at truecenter: 
         zoom 0.5
-    "You get nervous and your hands get weirdly sweaty and you drop the golf club on your foot and get an ouchie"
+    n "You get nervous and your hands get weirdly sweaty and you drop the golf club on your foot and get an ouchie"
     r "*side eye* Well you're rather uncoordinated aren't you..."
     hide richard worried
     jump richard_golf3A
@@ -256,22 +250,19 @@ label richard_golf2C:
 label richard_golf3A:
     show richard proud at truecenter: 
         zoom 0.5
-    "You two spent the afternoon drilling shots."
-    "Richard seemed to have a good time, I should ask him on a second date."
-    r "I win! It’s getting late! I must head to practice now, but that was super fun."
+    n "You two spent the afternoon drilling shots."
+    m "*thinking* Richard seemed to have a good time, I should ask him on a second date."
+    r "I win! It's getting late! I must head to practice now, but that was super fun."
     hide richard proud
-
     jump richard_dinner
 
 label richard_golf3B:
     show richard angry at truecenter: 
         zoom 0.5
-    "Richard did not seem to have a good time"
+    n "Richard did not seem to have a good time."
     r "You are not fun to play golf with whatsoever. Bye, forever."
-
-    ".:. Bad Ending."
     hide richard angry
-    return
+    jump Bad_End
 
 label richard_dinner: 
     scene bg north
@@ -312,18 +303,16 @@ label richard_dinner_B:
 
 
 label richard_dinner_C:
-    "You are too shy to talk to Richard and never speak to him ever again."
-    "Richard sees you in class. His eyes pass over you as he goes to greet CRC-chan, the prettiest girl in school."
-    "He will never speak to you again."
-
-    ".:. Bad Ending."
-    return
+    n "You are too shy to talk to Richard and never speak to him ever again."
+    n "Richard sees you in class. His eyes pass over you as he goes to greet CRC-chan, the prettiest girl in school."
+    n "He will never speak to you again."
+    jump Bad_End
 
 label richard_dinner_1: 
     scene bg restaurant
     show richard neutral at truecenter: 
         zoom 0.5
-    "Richard elegantly awaits you at the finest table in all of Taverna Banfi."
+    n "Richard elegantly awaits you at the finest table in all of Taverna Banfi."
     r "Hello [m]. Come, dine with me."
 
     "What will you order?"
@@ -334,27 +323,22 @@ label richard_dinner_1:
         "Just a water with a lime slice":
             jump richard_dinner_1B
         "A fine steak and a 1969 vintage Dom Peringon Champagne, a wine far out of your tax bracket":
-            
             jump richard_dinner_1C
 
 label richard_dinner_1A: 
     $ points -= 1
     show richard worried at truecenter:
         zoom 0.5
-    "Ordering from the children's menu?"
-    "I'm afraid you can't do that dear, it's for 12 and under only. You have no class."
-    
+    r "Ordering from the children's menu?"
+    r "I'm afraid you can't do that dear, it's for 12 and under only. You have no class."
     hide richard worried
-    ".:. Bad Ending."
-    
-    return
+    jump Bad_End
 
 label richard_dinner_1B: 
     show richard worried at truecenter:
         zoom 0.5
     r "Huh. That's a strange thing to order at a restaurant such as this."
     hide richard worried
-
     jump richard_dinner_2
 
 label richard_dinner_1C:
@@ -386,7 +370,7 @@ label richard_dinner_2A:
     $ points += 1
     show richard love at truecenter:
         zoom 0.5
-    "Richard drawing blushes really hard"
+    n "Richard drawing blushes really hard"
     m "I want to support you in all your business endeavors!"
     r "*blushes super hard* Thanks, that means a lot."
     hide richard love
@@ -412,8 +396,7 @@ label richard_dinner_2C:
     r "You think you can tell me how to run my business?! I hate you! We're over!"
     "Richard is sobbing because he got his feelings hurt."
     hide richard angry
-    ".:. Bad Ending."
-    return
+    jump Bad_End
 
 label richard_dinner_3: 
     show richard neutral at truecenter:
