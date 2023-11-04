@@ -105,7 +105,7 @@ label Richard_in_AEM:
     m "Dang what a jock, I guess he liked when I gave him a compliment on his vast generational wealth."
 
     menu:
-        "Leave Class and Search for Richard":
+        "Leave Class and search for Richard":
             jump Ask_Richard_out
 
 label Ask_Richard_out: 
@@ -411,10 +411,10 @@ label richard_dinner_2A:
     m "I want to support you in all your business endeavors!"
     hide richard neutral
 
-    show richard love at truecenter:
+    show richard blush at truecenter:
         zoom 0.5
-    r "*blushes super hard* Thanks, that means a lot."
-    hide richard love
+    r "Thanks, that means a lot."
+    hide richard blush
     jump richard_dinner_3
 
 label richard_dinner_2B:
