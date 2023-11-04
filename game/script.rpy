@@ -14,7 +14,7 @@ image bg ag = Frame("Cornell_Ag_quad.jpg")
 image bg golf = Frame("RTJ3.jpg")
 image bg north = Frame("north.jpg")
 image bg restaurant = Frame("taverna-banfi.jpg")
-image richard neutral= "richard.png"
+image richard neutral= "richard_neutral.png"
 image richard angry= "richard_angry.png"
 image richard proud= "richard_proud.png"
 image richard worried= "richard_worried.png"
@@ -39,7 +39,7 @@ label start:
     # These display lines of dialogue.
     n "Welcome to Botnell University! Here, all the smartest robots come to learn and prepare themselves to get a minimum wage job."
 
-    m "Wow, the first day of class. I am so excited for my freshman year at Cornell University!"
+    m "Wow, the first day of class. I am so excited for my freshman year at Botnell University!"
 
     $ m = renpy.input("What is your name, Botnell Student?")
 
@@ -64,16 +64,15 @@ label AEM_Class:
 
     # These display lines of dialogue.
     n "You are walking to your AEM Class..."
-
     m "Marketing! I am excited for class. I hope my professor is a good lecturer."
-
     m "Hmmm Warren 105... Ah found it!"
-
     m "It's the first day. I should try to make new friends..."
+
     show bruno neutral at truecenter
     n "In class, Professor Bruno talks about how money is good."
-    n "You look around and there is ??? to your left and one orange robot to your right."
     hide bruno neutral
+
+    n "You look around and there is ??? to your left and one orange robot to your right."
     menu:
         "Talk to the robot to the left":
             jump Richard_in_AEM
@@ -88,7 +87,6 @@ label Richard_in_AEM:
     n "You pick to the right."
     show richard neutral at truecenter: 
         zoom 0.5
-    
     m "Hey, nice to meet you. I'm [m], what's your major? "
     r "Hey! I'm a Business major and a pro golfer, look at my triceps. Here's my business card and $100."
     m "Money? You must be really rich!"
@@ -117,33 +115,38 @@ label Ask_Richard_out:
     r "Oh hey bro! What's up?"
     m "*thinking* Wow, Richard seems like a really cool fella, I should ask him to hang and get to know him better!"
 
-    "Ask Richard to:"
+    "I should ask Richard to:"
     hide richard neutral
 
     menu:
         "Come golfing with me.":
             jump richard_golf
 
-        "Let's study in the library.":
+        "Come study in the library.":
             jump richard_library
 
-        "We should go shopping.":
+        "Come shopping.":
             jump richard_shopping
 
 label richard_library:
-    show richard angry at truecenter: 
+    show richard neutral at truecenter: 
         zoom 0.5
     $ points -= 1
     m "Let's study in the library. There are some business texts and such in Olin Library!"
+    hide richard neutral
+    show richard angry at truecenter: 
+        zoom 0.5
     r "Bruh. I can't read. Not even a little bit."
     hide richard angry
     jump Bad_End
 
 label richard_shopping:
+    show richard neutral at truecenter: 
+        zoom 0.5
+    m "We should go shopping. We can go on a costly and hedonistic shopping spree with our parents' money!"
+    hide richard neutral
     show richard worried at truecenter: 
         zoom 0.5
-    
-    m "We should go shopping. We can go on a costly and hedonistic shopping spree with our parents' money!"
     r "I already own everything a man could ask for. Anywhere else?"
     hide richard worried
 
@@ -155,8 +158,11 @@ label richard_shopping:
             jump richard_shopping_end
 
 label richard_shopping_end: 
-    show richard angry at truecenter: 
+    show richard worried at truecenter: 
+        zoom 0.5
     m "Buy me Prada... Balenciaga."
+    hide richard worried
+    show richard angry at truecenter: 
     r "You're just using me for my money."
     r "Goodbye forever."
     hide richard angry
@@ -164,12 +170,15 @@ label richard_shopping_end:
 
 label richard_golf:
     $ points += 1
-
+    show richard neutral at truecenter: 
+        zoom 0.5
     m "Come golfing with me. I would like you and your incredible triceps like to accompany me on the golfing green this weekend!"
-    r "YAS fam, can't wait to show you my swings! *skip to next day*"
+    r "YAS fam, can't wait to show you my swings!"
+    hide richard neutral
     scene bg golf
     show richard proud at truecenter: 
         zoom 0.5
+    n "The next day..."
     n "You've arrived, and see that Richard has already begun hitting balls. You walk up to him."
     r "Hey, took you long enough! I've already scored a bogie. What did you think of that?"
     hide richard proud
@@ -178,7 +187,6 @@ label richard_golf:
             jump richard_golf1A
 
         "I can do better.": 
-
             jump richard_golf1B
 
         "Why did you hit the ball?! What did it ever do to you?!":
@@ -188,6 +196,7 @@ label richard_golf1A:
     show richard neutral at truecenter: 
         zoom 0.5
     m "That was sooo cool! Wow Richard! You have insane golf skills, you could be a pro!"
+    hide richard neutral
     r "Aww, thanks babe."
     $ points += 1
 
@@ -385,10 +394,10 @@ label richard_dinner_2:
 
 label richard_dinner_2A:
     $ points += 1
-    show richard at truecenter:
+    show richard neutral at truecenter:
         zoom 0.5
     m "I want to support you in all your business endeavors!"
-    hide richard
+    hide richard neutral
 
     show richard love at truecenter:
         zoom 0.5
@@ -479,12 +488,18 @@ label Bad_End:
 
 label Neutral_End: 
     scene bg duffield
+    show richard blush at truecenter:
+        zoom 0.5
     n "You date Richard for the rest of college."
     n "THE END - RICHARD ROUTE - NEUTRAL ENDING."
+    hide richard blush
     return
 
 label Good_End: 
     scene bg duffield
+    show richard love at truecenter:
+        zoom 0.5
     n "You and Richard walk to Duffield Atrium and get married and live happily ever after."
     n "THE END - RICHARD ROUTE - GOOD ENDING."
+    hide richard love
     return
