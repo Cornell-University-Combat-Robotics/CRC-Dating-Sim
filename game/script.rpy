@@ -108,7 +108,7 @@ label Ask_Richard_out:
     r "Oh hey bro! What's up?"
     m "*thinking* Wow, Richard seems like a really cool fella, I should ask him to hang and get to know him better!"
 
-    "Ask Richard to"
+    "Ask Richard to:"
     hide richard neutral
 
     menu:
@@ -126,7 +126,7 @@ label richard_library:
         zoom 0.5
     $ points -= 1
     m "Want to go study some business texts and such in Olin Library?"
-    r "Bruh. I can't read. Not even a little bit. *looks sad and dejected*"
+    r "Bruh. I can't read. Not even a little bit."
     hide richard angry
     jump Bad_End
 
@@ -134,7 +134,7 @@ label richard_shopping:
     show richard worried at truecenter: 
         zoom 0.5
     
-    m "Hey Richard! Let's go on a costly and hedonistic shopping spree with our parents'’' money!"
+    m "Hey Richard! Let's go on a costly and hedonistic shopping spree with our parents' money!"
     r "I already own everything a man could ask for. Anywhere else?"
     hide richard worried
 
@@ -190,7 +190,6 @@ label richard_golf1B:
         zoom 0.5
     m "Hmm, amateur. Let me show you how a real golfer gets it done. *grab club from him*"
     r " *pulling club away* How DARE you!"
-    n "richard frowns"
     $ points -= 1
     hide richard worried
     jump richard_golf2
@@ -223,7 +222,7 @@ label richard_golf2A:
     show richard proud at truecenter: 
         zoom 0.5
     $ points += 1
-    m "I cannot play golf, please guide me through the swing slowly with your strong arms."
+    m "Help me Richard, I cannot play golf, please guide me through the swing slowly with your strong arms!"
     r "*blushing* Oh, why of course madame!"
     hide richard proud
     jump richard_golf3A
@@ -242,7 +241,7 @@ label richard_golf2B:
 label richard_golf2C:
     show richard worried at truecenter: 
         zoom 0.5
-    n "You get nervous and your hands get weirdly sweaty and you drop the golf club on your foot and get an ouchie"
+    n "You get nervous and your hands get weirdly sweaty and you drop the golf club on your foot and get an ouchie."
     r "*side eye* Well you're rather uncoordinated aren't you..."
     hide richard worried
     jump richard_golf3A
