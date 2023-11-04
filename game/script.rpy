@@ -324,7 +324,7 @@ label richard_dinner_1:
     show richard neutral at truecenter: 
         zoom 0.5
     "Richard elegantly awaits you at the finest table in all of Taverna Banfi."
-    r "Hello %(player_name). Come, dine with me."
+    r "Hello [m]. Come, dine with me."
 
     "What will you order?"
     hide richard neutral

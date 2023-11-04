@@ -1,22 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 89, in script
-    m "Hey nice to meet you. I’m %(m), what’s your major? "
-ValueError: unsupported format character ',' (0x2c) at index 30
+  File "game/script.rpy", line 327, in script
+    r "Hello %(player_name). Come, dine with me."
+ValueError: unsupported format character ' ' (0x20) at index 21
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 89, in script
-    m "Hey nice to meet you. I’m %(m), what’s your major? "
+  File "game/script.rpy", line 327, in script
+    r "Hello %(player_name). Come, dine with me."
   File "C:\Users\Ruby W\renpy-8.1.3-sdk\renpy\ast.py", line 930, in execute
     renpy.exports.say(who, what, *args, **kwargs)
   File "C:\Users\Ruby W\renpy-8.1.3-sdk\renpy\exports.py", line 1463, in say
     what = what % tag_quoting_dict
-ValueError: unsupported format character ',' (0x2c) at index 30
+ValueError: unsupported format character ' ' (0x20) at index 21
 
 Windows-10-10.0.22621 AMD64
 Ren'Py 8.1.3.23091805
 CRC RIZZ 1.0
-Thu Nov  2 18:32:51 2023
+Thu Nov  2 18:47:56 2023
