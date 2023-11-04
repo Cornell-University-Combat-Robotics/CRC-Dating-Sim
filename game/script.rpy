@@ -4,8 +4,8 @@
 # name of the character.
 
 define m = Character("Player") #change this to support self insert
-define n = Character("Narrator") 
-define r = Character("Richard")
+define n = Character("Narrator", color="ffffff") 
+define r = Character("Richard", color="ffa500")
 define prof = Character("Prof Bruno")
 image bruno neutral = "bruno.png"
 image bg duffield = Frame("Duffield-ext-pano_0.jpg")
