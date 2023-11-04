@@ -45,3 +45,5 @@ Version: b'2.1 INTEL-18.8.6'
 Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1159, 652) drawable=(2318, 1304)
 Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1159, 738) drawable=(2318, 1476)
+Maximum texture size: 4096x4096

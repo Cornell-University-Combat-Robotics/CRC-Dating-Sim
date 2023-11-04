@@ -184,7 +184,7 @@ label richard_golf:
     n "You've arrived, and see that Richard has already begun hitting balls. You walk up to him."
     show richard proud at truecenter: 
         zoom 0.5
-    r "Hey, took you long enough! I've already scored a bogie. What did you think of that?"
+    r "Hey, took you long enough! I've already scored a birdie. What did you think of that?"
     hide richard proud
     menu:
         "That was sooo cool!":
