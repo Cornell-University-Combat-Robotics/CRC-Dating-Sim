@@ -103,7 +103,8 @@ label Richard_in_AEM:
     prof "AHEM! We have business to attend to!"
     hide bruno neutral
 
-    m "*thinking* Dang what a jock, I guess he liked when I gave him a compliment on his vast generational wealth."
+    n "You both get back to class and focus."
+    m "Dang what a jock, I guess he liked when I gave him a compliment on his vast generational wealth."
 
     menu:
         "Leave Class":
