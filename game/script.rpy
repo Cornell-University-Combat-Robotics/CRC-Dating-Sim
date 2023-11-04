@@ -289,7 +289,7 @@ label richard_dinner_A:
     n "You dial Richard's number that you found on Student Center."
     m "Hi Richard! I-"
     r "Oh [m]! So good of you to call. I was just thinking about calling you. How've you been?"
-    r " Nevermind that... I have ultradeluxe reservations at Taverna Banfi in Cornell's own Statler Hotel this evening, would you care to join me?"
+    r " Nevermind that... I have ultradeluxe reservations at Taverna Banfi in Botnell's own Batler Hotel this evening, would you care to join me?"
     hide richard neutral
 
     jump richard_dinner_1
@@ -301,6 +301,7 @@ label richard_dinner_B:
     m "Hi Richard! I just thought I'd come over-"
     r "Oh my my! What are you doing in my palatial home unannounced?"
     r "Well, that's one way to get a man out on a date... does Taverna Banfi for 2 interest you?"
+    m "Oh.. why yes!"
     hide richard neutral
 
     jump richard_dinner_1
@@ -335,7 +336,7 @@ label richard_dinner_1A:
         zoom 0.5
     m "I would like pasta with butter and choccy milk from the kids menu."
     r "Ordering from the children's menu?"
-    r "I'm afraid you can't do that dear, it's for 12 and under only. You have no class."
+    r "I'm afraid you can't do that dear, it's for 12 and under only. You seem to have no class."
     hide richard worried
     jump Bad_End
 
@@ -351,6 +352,7 @@ label richard_dinner_1C:
     $ points += 1
     show richard proud at truecenter:
         zoom 0.5
+
     m "I would like a fine steak and a 1969 vintage Dom Peringon Champagne, a wine far out of my tax bracket."
     r "What fine exquisite taste you have madame! I commend you. (lifts glass like Jay Gatsby)"
     hide richard proud
@@ -387,8 +389,9 @@ label richard_dinner_2B:
     show richard worried at truecenter:
         zoom 0.5
     m "Wait a minute... what does your money management asset-selling stock-rising business actually do again?"
-    r "Oh... you don't know?"
-    r "But I talk about it constantly to the point where it may be considered slightly annoying... (sad and dejected)"
+    r "Oh... you dont know?"
+    r "But I talk about it constantly to the point where it may be considered slightly annoying..."
+
     r "Oh well, let me just spend another hour re-explaining to you..."
     hide richard worried
     jump richard_dinner_3
@@ -411,7 +414,7 @@ label richard_dinner_3:
     n "The lights dim. Richard leans in close and his eyes sparkle in the candlelight. What a romantic moment!"
     r "That means a lot to me. People are always shooting my ideas down."
     r "I want to find someone who will never stop me from pursuing my dreams of obtaining unimaginable wealth."
-    m "*thinking* I should be really careful with my words."
+    m "*thinking* This is an important moment. I should be really careful with my words."
     hide richard neutral
     menu: 
         "Profess your love!":
@@ -437,15 +440,14 @@ label richard_dinner_3A:
         jump Bad_End
 
 label richard_dinner_3B:
-    show richard sad at truecenter:
+    show richard worried at truecenter:
         zoom 0.5
     m "Yeah I support you in your business thingamajiggy. I'll always be your good pal, buddy!"
     r "Oh... um... you're my friend too... buddy. (he winces)"
-    hide richard sad
+    hide richard worried
     jump Bad_End
 
 label richard_dinner_3C:
-    scene bg duffield
     show richard sad at truecenter:
         zoom 0.5
     m "I have something to tell you sweetheart."
