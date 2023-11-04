@@ -6,7 +6,7 @@
 define m = Character("Player") #change this to support self insert
 define n = Character("Narrator", color="ffffff") 
 define r = Character("Richard", color="ffa500")
-define prof = Character("Prof Bruno")
+define prof = Character("Prof Bruno", color="ffffff")
 image bruno neutral = "bruno.png"
 image bg duffield = Frame("Duffield-ext-pano_0.jpg")
 image bg warren = Frame("warren_hall.jpg")
@@ -125,7 +125,7 @@ label richard_library:
     show richard angry at truecenter: 
         zoom 0.5
     $ points -= 1
-    m "Want to go study some business texts and such in Olin Library?"
+    m "Let's study in the library. There are some business texts and such in Olin Library!"
     r "Bruh. I can't read. Not even a little bit."
     hide richard angry
     jump Bad_End
@@ -134,7 +134,7 @@ label richard_shopping:
     show richard worried at truecenter: 
         zoom 0.5
     
-    m "Hey Richard! Let's go on a costly and hedonistic shopping spree with our parents' money!"
+    m "We should go shopping. We can go on a costly and hedonistic shopping spree with our parents' money!"
     r "I already own everything a man could ask for. Anywhere else?"
     hide richard worried
 
@@ -142,11 +142,12 @@ label richard_shopping:
         "Come golfing with me.":
             jump richard_golf
 
-        "Buy Me Prada... Balenciaga.":
+        "Buy me Prada... Balenciaga.":
             jump richard_shopping_end
 
 label richard_shopping_end: 
     show richard angry at truecenter: 
+    m "Buy me Prada... Balenciaga."
     r "You're just using me for my money."
     r "Goodbye forever."
     hide richard angry
@@ -155,7 +156,7 @@ label richard_shopping_end:
 label richard_golf:
     $ points += 1
 
-    m "Would you and your incredible triceps like to accompany me on the golfing green this weekend?"
+    m "Come golfing with me. I would like you and your incredible triceps like to accompany me on the golfing green this weekend!"
     r "YAS fam, can't wait to show you my swings! *skip to next day*"
     scene bg golf
     show richard proud at truecenter: 
@@ -171,13 +172,13 @@ label richard_golf:
 
             jump richard_golf1B
 
-        "Why did you hit the ball what did it ever do to you?":
+        "Why did you hit the ball?! What did it ever do to you?!":
             jump richard_golf1C
 
 label richard_golf1A: 
     show richard neutral at truecenter: 
         zoom 0.5
-    m "Wow Richard! You have insane golf skills, you could be a pro!"
+    m "That was sooo cool! Wow Richard! You have insane golf skills, you could be a pro!"
     r "Aww, thanks babe."
     $ points += 1
 
@@ -188,7 +189,7 @@ label richard_golf1A:
 label richard_golf1B: 
     show richard worried at truecenter: 
         zoom 0.5
-    m "Hmm, amateur. Let me show you how a real golfer gets it done. *grab club from him*"
+    m "I can do better, amateur. Let me show you how a real golfer gets it done. *grab club from him*"
     r " *pulling club away* How DARE you!"
     $ points -= 1
     hide richard worried
@@ -196,7 +197,7 @@ label richard_golf1B:
 
 
 label richard_golf1C: 
-    m "Hey! Why'd you hit that ball?! What did he ever do to you?!"
+    m "Hey! Why'd you hit that ball?! What did it ever do to you?!"
     show richard angry at truecenter: 
         zoom 0.5
     r "*side eye* You are an odd egg."
@@ -241,7 +242,7 @@ label richard_golf2B:
 label richard_golf2C:
     show richard worried at truecenter: 
         zoom 0.5
-    n "You get nervous and your hands get weirdly sweaty and you drop the golf club on your foot and get an ouchie."
+    n "You get nervous and your hands get weirdly sweaty. You drop the golf club on your foot and get an ouchie."
     r "*side eye* Well you're rather uncoordinated aren't you..."
     hide richard worried
     jump richard_golf3A
@@ -283,6 +284,7 @@ label richard_dinner_A:
         zoom 0.5
     $ points += 1
 
+    n "You dial Richard's number that you found on Student Center."
     m "Hi Richard! I-"
     r "Oh [m]! So good of you to call. I was just thinking about calling you. How've you been?"
     r " Nevermind that... I have ultradeluxe reservations at Taverna Banfi in Cornell's own Statler Hotel this evening, would you care to join me?"
@@ -293,6 +295,7 @@ label richard_dinner_A:
 label richard_dinner_B:
     show richard neutral at truecenter: 
         zoom 0.5
+    n "You walk to Richard's dorm."
     m "Hi Richard! I just thought I'd come over-"
     r "Oh my my! What are you doing in my palatial home unannounced?"
     r "Well, that's one way to get a man out on a date... does Taverna Banfi for 2 interest you?"
@@ -317,17 +320,18 @@ label richard_dinner_1:
     "What will you order?"
     hide richard neutral
     menu: 
-        "Pasta with butter and choccy milk from the kids menu":
+        "Pasta with butter and choccy milk from the kids menu.":
             jump richard_dinner_1A
-        "Just a water with a lime slice":
+        "Just a water with a lime slice.":
             jump richard_dinner_1B
-        "A fine steak and a 1969 vintage Dom Peringon Champagne, a wine far out of your tax bracket":
+        "A fine steak and a 1969 vintage Dom Peringon Champagne, a wine far out of your tax bracket.":
             jump richard_dinner_1C
 
 label richard_dinner_1A: 
     $ points -= 1
     show richard worried at truecenter:
         zoom 0.5
+    m "I would like pasta with butter and choccy milk from the kids menu."
     r "Ordering from the children's menu?"
     r "I'm afraid you can't do that dear, it's for 12 and under only. You have no class."
     hide richard worried
@@ -336,6 +340,7 @@ label richard_dinner_1A:
 label richard_dinner_1B: 
     show richard worried at truecenter:
         zoom 0.5
+    m "I would like just a water with a lime slice."
     r "Huh. That's a strange thing to order at a restaurant such as this."
     hide richard worried
     jump richard_dinner_2
@@ -344,6 +349,7 @@ label richard_dinner_1C:
     $ points += 1
     show richard proud at truecenter:
         zoom 0.5
+    m "I would like a fine steak and a 1969 vintage Dom Peringon Champagne, a wine far out of my tax bracket."
     r "What fine exquisite taste you have madame! I commend you. (lifts glass like Jay Gatsby)"
     hide richard proud
     jump richard_dinner_2
@@ -351,6 +357,7 @@ label richard_dinner_1C:
 label richard_dinner_2:
     show richard neutral at truecenter:
         zoom 0.5
+    n "The dinner is going well and you and Richard talk for an hour."
     r "It's nice to take a break after working so hard on my money management and asset-selling stock-rising business."
     r "I love my work, but sometimes it really takes a toll."
 
@@ -369,7 +376,6 @@ label richard_dinner_2A:
     $ points += 1
     show richard love at truecenter:
         zoom 0.5
-    n "Richard drawing blushes really hard"
     m "I want to support you in all your business endeavors!"
     r "*blushes super hard* Thanks, that means a lot."
     hide richard love
@@ -379,7 +385,7 @@ label richard_dinner_2B:
     show richard worried at truecenter:
         zoom 0.5
     m "Wait a minute... what does your money management asset-selling stock-rising business actually do again?"
-    r "Oh... you dont know?"
+    r "Oh... you don't know?"
     r "But I talk about it constantly to the point where it may be considered slightly annoying... (sad and dejected)"
     r "Oh well, let me just spend another hour re-explaining to you..."
     hide richard worried
@@ -393,14 +399,14 @@ label richard_dinner_2C:
     m "Are you really ready to brave the treachourous pitfalls of today's economy and bring a multifaceted business such as this into the market?"
     m "I think there may be some things you should rethink about this business plan."
     r "You think you can tell me how to run my business?! I hate you! We're over!"
-    "Richard is sobbing because he got his feelings hurt."
+    n "Richard is sobbing because he got his feelings hurt."
     hide richard angry
     jump Bad_End
 
 label richard_dinner_3: 
     show richard neutral at truecenter:
         zoom 0.5
-    "The lights dim. Richard leans in close and his eyes sparkle in the candlelight. What a romantic moment!"
+    n "The lights dim. Richard leans in close and his eyes sparkle in the candlelight. What a romantic moment!"
     r "That means a lot to me. People are always shooting my ideas down."
     r "I want to find someone who will never stop me from pursuing my dreams of obtaining unimaginable wealth."
     m "*thinking* I should be really careful with my words."
@@ -419,7 +425,7 @@ label richard_dinner_3A:
     show richard love at truecenter:
         zoom 0.5
     m "I will always support you Richard, because I LOVE you!"
-    "His eyes sparkle with love! He leans in for a kiss. The kiss tastes metallic."
+    n "His eyes sparkle with love! He leans in for a kiss. The kiss tastes metallic."
     hide richard love
     if points > 4:
         jump Good_End
@@ -442,7 +448,7 @@ label richard_dinner_3C:
         zoom 0.5
     m "I have something to tell you sweetheart."
     m "I was only talking to you in order to hear all of your business plans and use them for my competing business in the same market! Get owned Richie!"
-    "You abandon Richard at the table as he cries like a baby, his life's dreams shattered."
+    n "You abandon Richard at the table as he cries like a baby, his life's dreams shattered."
     hide richard sad
     jump Bad_End
 
@@ -450,20 +456,20 @@ label Bad_End:
     scene bg duffield
     show richard sad at truecenter:
         zoom 0.5
-    "Richard does not feel like his love is returned. He rejects your advances."
+    n "Richard does not feel like his love is returned. He rejects your advances."
     r "Sorry, I don't think I'm interested anymore."
-    "You have betrayed Richard's trust and he hates you forever. Nice going, dumbass."
+    n "You have betrayed Richard's trust and he hates you forever. Nice going, dumbass."
     hide richard sad
     return
 
 label Neutral_End: 
     scene bg duffield
-    "You date Richard for the rest of college."
-    "THE END - RICHARD ROUTE - NEUTRAL ENDING."
+    n "You date Richard for the rest of college."
+    n "THE END - RICHARD ROUTE - NEUTRAL ENDING."
     return
 
 label Good_End: 
     scene bg duffield
-    "You and Richard walk to Duffield Atrium and get married and live happily ever after."
-    "THE END - RICHARD ROUTE - GOOD ENDING."
+    n "You and Richard walk to Duffield Atrium and get married and live happily ever after."
+    n "THE END - RICHARD ROUTE - GOOD ENDING."
     return
