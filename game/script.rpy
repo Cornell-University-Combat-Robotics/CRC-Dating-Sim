@@ -39,6 +39,22 @@ image heartbreak:
     0.2
     repeat
 
+
+image love:
+    "heart.PNG"
+    0.2
+    "hearta.PNG"
+    0.2 #this part defines how long to wait before next frame
+    "heartb.PNG"
+    0.2
+    "heartc.PNG"
+    0.2
+    "heartb.PNG"
+    0.2
+    "hearta.PNG"
+    0.2
+    repeat
+
 # The game starts here.
 label start:
     $ points = 0 
@@ -53,6 +69,7 @@ label start:
     # directory.
 
     # These display lines of dialogue.
+
     n "Welcome to Botnell University! Here, all the smartest robots come to learn and prepare themselves to get a minimum wage job."
 
     m "Wow, the first day of class. I am so excited for my freshman year at Botnell University!"
@@ -157,9 +174,7 @@ label richard_library:
         matrixcolor TintMatrix("#6967d4") * SaturationMatrix(0.01)
         zoom 3
     
-    m "Let's study in the library. There are some business texts and such in Olin Library!"
     r "Bruh. I can't read. Not even a little bit."
-    $ points -= 1
     hide richard angry
     hide heartbreak
     jump Bad_End
@@ -201,6 +216,8 @@ label richard_golf:
     show richard proud at truecenter: 
         zoom 0.5
     r "YAS fam, can't wait to show you my swings!"
+    show love at left:
+        zoom 3
     $ points += 1
     hide richard proud
     scene bg golf
@@ -210,6 +227,7 @@ label richard_golf:
         zoom 0.5
     r "Hey, took you long enough! I've already scored a birdie. What did you think of that?"
     hide richard proud
+    hide love
     menu:
         "That was sooo cool!":
             jump richard_golf1A
@@ -224,17 +242,24 @@ label richard_golf1A:
     show richard neutral at truecenter: 
         zoom 0.5
     m "That was sooo cool! Wow Richard! You have insane golf skills, you could be a pro!"
+    show love at left:
+        zoom 3
     hide richard neutral
     show richard blush at truecenter: 
         zoom 0.5
     r "Aww, thanks babe."
     $ points += 1
     hide richard blush
+    hide love 
     jump richard_golf2
 
 label richard_golf1B: 
+    
     show richard neutral at truecenter: 
         zoom 0.5
+    show heartbreak at left:
+        matrixcolor TintMatrix("#6967d4") * SaturationMatrix(0.01)
+        zoom 3
     m "I can do better, amateur. Let me show you how a real golfer gets it done."
     hide richard worried
     n "You forcefully grab the club from Richard."
@@ -243,6 +268,7 @@ label richard_golf1B:
     r "How DARE you!"
     $ points -= 1
     hide richard angry
+    hide heartbreak
     jump richard_golf2
 
 label richard_golf1C: 
@@ -274,18 +300,25 @@ label richard_golf2:
 label richard_golf2A: 
     show richard neutral at truecenter: 
         zoom 0.5
+    
     m "Help me Richard, I cannot play golf, please guide me through the swing slowly with your strong arms!"
     hide richard neutral
+    show love at left:
+        zoom 3
     show richard proud at truecenter: 
         zoom 0.5
     r "Oh, why of course my dear!"
     $ points += 1
     hide richard proud
+    hide love
     jump richard_golf3A
 
 label richard_golf2B:
     show richard worried at truecenter: 
         zoom 0.5
+    show heartbreak at left:
+        matrixcolor TintMatrix("#6967d4") * SaturationMatrix(0.01)
+        zoom 3
     m "No, thanks. I am against the playing of golf for the environmental effects of the watering of golf courses."
     m "This entire establishment is a waste of our local freshwater resources and I will not stand for it."
     hide richard worried
@@ -295,6 +328,7 @@ label richard_golf2B:
     r "You are obviously uncultured if you can't appreciate the finer things in life like the joy of hitting golf balls!"
     $ points -= 1
     hide richard angry
+    hide heartbreak
     jump richard_golf3B
 
 label richard_golf2C:
@@ -340,9 +374,12 @@ label richard_dinner_A:
         zoom 0.5
     m "Hi Richard! I-"
     r "Oh [m]! So good of you to call. I was just thinking about calling you. How've you been?"
+    show love at left:
+        zoom 3
     $ points += 1
     r " Nevermind that... I have ultradeluxe reservations at Taverna Banfi in Botnell's own Batler Hotel this evening, would you care to join me?"
     hide richard neutral
+    hide love
     jump richard_dinner_1
 
 label richard_dinner_B:
@@ -383,6 +420,9 @@ label richard_dinner_1:
             jump richard_dinner_1C
 
 label richard_dinner_1A: 
+    show heartbreak at left:
+        matrixcolor TintMatrix("#6967d4") * SaturationMatrix(0.01)
+        zoom 3
     $ points -= 1
     show richard worried at truecenter:
         zoom 0.5
@@ -390,6 +430,7 @@ label richard_dinner_1A:
     r "Ordering from the children's menu?"
     r "I'm afraid you can't do that dear, it's for 12 and under only. You seem to have no class."
     hide richard worried
+    hide heartbreak
     jump Bad_End
 
 label richard_dinner_1B: 
@@ -406,8 +447,11 @@ label richard_dinner_1C:
         zoom 0.5
 
     m "I would like a fine steak and a 1969 vintage Dom Peringon Champagne, a wine far out of my tax bracket."
+    show love at left:
+        zoom 3
     r "What fine exquisite taste you have madame! I commend you. (lifts glass like Jay Gatsby)"
     hide richard proud
+    hide love
     jump richard_dinner_2
 
 label richard_dinner_2:
@@ -433,12 +477,15 @@ label richard_dinner_2A:
     show richard neutral at truecenter:
         zoom 0.5
     m "I want to support you in all your business endeavors!"
+    show love at left:
+        zoom 3
     hide richard neutral
 
     show richard blush at truecenter:
         zoom 0.5
     r "Thanks, that means a lot."
     hide richard blush
+    hide love
     jump richard_dinner_3
 
 label richard_dinner_2B:
@@ -454,6 +501,9 @@ label richard_dinner_2B:
 
 label richard_dinner_2C:
     $ points -= 1
+    show heartbreak at left:
+        matrixcolor TintMatrix("#6967d4") * SaturationMatrix(0.01)
+        zoom 3
     show richard angry at truecenter:
         zoom 0.5
     m "I understand you want to build your business, but are you sure that this company has an ethical basis in today's modern society?" 
@@ -462,6 +512,7 @@ label richard_dinner_2C:
     r "You think you can tell me how to run my business?! I hate you! We're over!"
     n "Richard is sobbing because he got his feelings hurt."
     hide richard angry
+    hide heartbreak
     jump Bad_End
 
 label richard_dinner_3: 
