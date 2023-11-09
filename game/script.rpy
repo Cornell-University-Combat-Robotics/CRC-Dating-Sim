@@ -22,6 +22,22 @@ image richard love = "richard_love.png"
 image richard sad = "richard_sad.png"
 image richard blush = "richard_blush.png"
 image richard fuckboy = "richard_fuckboy.png"
+image heart = "heart.PNG"
+
+image heartbreak:
+    "heart.PNG"
+    0.2
+    "heart1.PNG"
+    0.2 #this part defines how long to wait before next frame
+    "heart2.PNG"
+    0.2
+    "heart3.PNG"
+    0.2
+    "heart4.PNG"
+    0.2
+    "heart5.PNG"
+    0.2
+    repeat
 
 # The game starts here.
 label start:
@@ -127,9 +143,15 @@ label richard_library:
     show richard angry at truecenter: 
         zoom 0.5
     $ points -= 1
+
+    show heartbreak at left:
+        matrixcolor TintMatrix("#6967d4") * SaturationMatrix(0.01)
+        zoom 3
+    
     m "Let's study in the library. There are some business texts and such in Olin Library!"
     r "Bruh. I can't read. Not even a little bit."
     hide richard angry
+    hide heartbreak
     jump Bad_End
 
 label richard_shopping:
@@ -414,7 +436,7 @@ label richard_dinner_3:
     m "*thinking* I should be really careful with my words."
     hide richard neutral
     menu: 
-        "Profess your love!":
+        "Profess your love!" if points > 3:
             jump richard_dinner_3A
 
         "Stay just friends.":
