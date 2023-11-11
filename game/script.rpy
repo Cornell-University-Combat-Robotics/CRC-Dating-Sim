@@ -55,9 +55,26 @@ image heartpoint:
     0.2
     repeat
 
+
+screen stats():
+    # $ points = 0 
+    zorder 100    
+    if quick_menu:
+        vbox:            
+            xalign 0.0
+            yalign 0.8
+
+            $ Rizzpoints = "Rizzpoints: " + str(points)
+
+            text _("{color=#ffffff}" + Rizzpoints + "{/color}")
+
+
+init python:
+    config.overlay_screens.append("stats")
+
 # The game starts here.
 label start:
-    $ points = 0 
+    $ points = 0
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
