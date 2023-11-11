@@ -390,8 +390,7 @@ label richard_golf3B:
 label richard_dinner: 
     scene bg north
     m "Richard is so CUTE!! I want to meet with Richard again, I should ask him out on a second date!"
-    m
-    enu: 
+    menu: 
         "Call him":
             jump richard_dinner_A
 
