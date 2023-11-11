@@ -145,7 +145,7 @@ label Richard_in_AEM:
 
     show richard fuckboy at truecenter: 
         zoom 0.5
-    r "Actually my friends call me Richard."
+    r "Actually my friends call me RICHard."
     hide richard fuckboy
 
     show bruno neutral at truecenter
@@ -586,7 +586,7 @@ label richard_dinner_3:
     hide richard blush
 
     menu: 
-        "Profess your love! <3" if points > 4:
+        "Profess your love! <3" if points > 3:
             jump richard_dinner_3A
 
         "Support him as just friends.":
@@ -619,7 +619,7 @@ label richard_dinner_3A:
     r "Now let's get this bread!"
     hide richard fuckboy
 
-    if points > 6:
+    if points > 5:
         jump Good_End
     else: 
         jump Neutral_End_Love
