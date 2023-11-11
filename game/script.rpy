@@ -587,7 +587,7 @@ label richard_dinner_3:
     hide richard blush
 
     menu: 
-        "Profess your love! <3" if points > 3:
+        "Profess your love! <3" if points > 4:
             jump richard_dinner_3A
 
         "Support him as just friends.":
@@ -620,7 +620,7 @@ label richard_dinner_3A:
     r "Now let's get this bread!"
     hide richard fuckboy
 
-    if points > 4:
+    if points > 6:
         jump Good_End
     else: 
         jump Neutral_End_Love
