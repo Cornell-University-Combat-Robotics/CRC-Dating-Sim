@@ -1,15 +1,15 @@
 renpy.geometry renpy.texture
-renpy.geometry renpy.matrixcolor renpy.texture
-renpy.geometry renpy.solid
-=======
 renpy.alpha renpy.texture
 renpy.dissolve renpy.dissolve
->>>>>>> main
-<<<<<<< HEAD
+renpy.solid
+>>>>>>> 52c8c285678e5311b3a4217aca50478f1a015d03
+renpy.dissolve renpy.geometry
+renpy.geometry renpy.solid
+renpy.matrixcolor renpy.texture
+renpy.geometry renpy.matrixcolor renpy.texture
 renpy.ftl
 renpy.alpha renpy.geometry renpy.texture
+=======
+>>>>>>> main
 renpy.texture
-renpy.matrixcolor renpy.texture
->>>>>>> 52c8c285678e5311b3a4217aca50478f1a015d03
-renpy.solid
-renpy.dissolve renpy.geometry
+<<<<<<< HEAD
