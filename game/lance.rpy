@@ -24,7 +24,7 @@ label English_Class:
     # These display lines of dialogue.
     n "You are walking to your English Class..."
     m "English! I am excited for class. I hope my professor is a good lecturer."
-    m "Hmmm ENTER ROOM NUMBER... Ah found it!"
+    m "Hmmm Morril 105... Ah found it!"
     m "It's the first day. I should try to make new friends..."
 
     show bruno neutral at truecenter
@@ -69,8 +69,11 @@ label Lance_in_English:
             jump Ask_Lance_out
 
 label Ask_Lance_out: 
-    scene bg ag
-    
+    scene bg arts
+
+    n "You rush out of class and look for Lance before spotting him walking in the arts quad."
+    n "You quickly hurry to catch up to him."
+
     show lance neutral at truecenter: 
         zoom 0.5
     l "My my, fancy seeing you again here darling! Come here often?"
@@ -252,7 +255,7 @@ label lance_2nd_ask:
                 zoom 0.5
             show heartpoint at left:
                 zoom 3
-            l "Oh (BLANK)! Hmmm… (BLANK), (BLANK)... Wherefore art thou, (BLANK)?... How lovely to see you here. I've been thinking of your beautiful eyes since the night I was so lucky to be in your company for that beautiful picnic. Would you care to join me on the suspension bridge this evening at the strike of midnight?"
+            l "Oh [m]! Hmmm… [m], [m]... Wherefore art thou, [m]?... How lovely to see you here. I've been thinking of your beautiful eyes since the night I was so lucky to be in your company for that beautiful picnic. Would you care to join me on the suspension bridge this evening at the strike of midnight?"
             $ points += 1
             hide heartpoint
             jump lance_2nd_date
@@ -267,7 +270,6 @@ label lance_2nd_ask:
             n "Lance sees you in class. His eyes pass over you as he goes to greet CRC-chan, the prettiest girl in school. He will never speak to you again"
             show heartbreak at left:
                 zoom 3
-            l "Oh (BLANK)! Hmmm… (BLANK), (BLANK)... Wherefore art thou, (BLANK)?... How lovely to see you here. I've been thinking of your beautiful eyes since the night I was so lucky to be in your company for that beautiful picnic. Would you care to join me on the suspension bridge this evening at the strike of midnight?"
             $ points -= 1
             hide heartbreak
             return
@@ -308,6 +310,7 @@ label lance_2nd_date:
 
 label lance_2nd_date_pt2:
     show lance cold at truecenter: 
+        zoom 0.5
 
     n "The clocktower continues ringing out the 12 chimes of midnight as the cold autmn wind ruffles your hair in the lamplight. In the frigid fall air, you see Lance begin to feel the slightest shiver."
     menu: 
@@ -323,11 +326,12 @@ label lance_2nd_date_pt2:
         "Toughen up cupcake":
             m "Toughen up cupcake. You know it gets much colder in Ithaca when its actually winter."
             show lance sad at truecenter: 
-            show heartpoint at left:
+                zoom 0.5
+            show heartbreak at left:
                 zoom 3
-            $ points += 1
+            $ points -= 1
             l "*sniffles, teeth chattering* Oh… well… that wasn't very kind…"
-            hide heartpoint
+            hide heartbreak
             jump lance_final
 
         "Do nothing":
@@ -336,6 +340,8 @@ label lance_2nd_date_pt2:
             jump lance_final
 
 label lance_final:
+    show lance neutral at truecenter: 
+        zoom 0.5
     n "The twelfth chime of midnight rings out across the campus."
     n "Lance looks deeply into your eyes and you feel woozy. As you begin to lose balance, Lance swiftly scoops you into his arms and holds you in a romantic embrace."
     n "The time is right, and he closes his eyes, puckers his lips, and moves in close.  What a romantic moment! I should be really careful with my words."
@@ -346,16 +352,48 @@ label lance_final:
                 show heartpoint at left:
                     zoom 3
                 n "His eyes sparkle with love! He leans in for a kiss. The kiss tastes metallic."
+                hide heartpoint
                 return
 
             "reject romance.":
                 m "*lean away and pat him on the back* Ok there bud, hold your horses. Not to burst your bubble but I think we should set this all straight so no feelings get hurt. I just don't know if I'm feeling like ROMANCE right now… I was more going for a situationship friends with benefits part time no labels kind of casual thing, you know?"
+                show lance sad at truecenter: 
+                    zoom 0.5
+                show heartbreak at left:
+                    zoom 3
                 l "Oh… um…ok then I guess. (he winces)"
+                hide heartbreak
                 return
 
             "(REJECT HIS EXISTENCE AND RUIN HIS DREAMS AFTER PRETENDING TO BE HIS FRIEND)":
-                m "Player: I have something to tell you sweetheart. I was just playing with you all along. You think you're so ROMANTIC, but you're no better than any other asshole at this school. You're an egotistical narcissist who thinks he's hot shit just because he's tall and dreamy, well I don't need you!"
+                m "I have something to tell you sweetheart. I was just playing with you all along. You think you're so ROMANTIC, but you're no better than any other asshole at this school. You're an egotistical narcissist who thinks he's hot shit just because he's tall and dreamy, well I don't need you!"
+                show lance sad at truecenter: 
+                    zoom 0.5
+                show heartbreak at left:
+                    zoom 3
                 n "You abandon LANCE on the bridge as he cries like a baby, his life's dreams shattered."
+                hide heartbreak
+                return
+    else:
+        menu:
+            "reject romance.":
+                m "*lean away and pat him on the back* Ok there bud, hold your horses. Not to burst your bubble but I think we should set this all straight so no feelings get hurt. I just don't know if I'm feeling like ROMANCE right now… I was more going for a situationship friends with benefits part time no labels kind of casual thing, you know?"
+                show lance sad at truecenter: 
+                    zoom 0.5
+                show heartbreak at left:
+                    zoom 3
+                l "Oh… um…ok then I guess. (he winces)"
+                hide heartbreak
+                return
+
+            "(REJECT HIS EXISTENCE AND RUIN HIS DREAMS AFTER PRETENDING TO BE HIS FRIEND)":
+                m "I have something to tell you sweetheart. I was just playing with you all along. You think you're so ROMANTIC, but you're no better than any other asshole at this school. You're an egotistical narcissist who thinks he's hot shit just because he's tall and dreamy, well I don't need you!"
+                show lance sad at truecenter: 
+                    zoom 0.5
+                show heartbreak at left:
+                    zoom 3
+                n "You abandon LANCE on the bridge as he cries like a baby, his life's dreams shattered."
+                hide heartbreak
                 return
     
 
