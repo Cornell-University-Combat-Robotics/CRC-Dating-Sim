@@ -2,6 +2,7 @@
 define m = Character("Player") #change this to support self insert
 define n = Character("Narrator", color="ffffff") 
 define r = Character("Richard", color="ffa500")
+define l = Character("Lance", color="39FF14")
 define prof = Character("Prof Bruno", color="ffffff")
 image bruno neutral = "bruno.png"
 
@@ -12,6 +13,8 @@ image bg ag = Frame("bg/Cornell_Ag_quad.jpg")
 image bg golf = Frame("bg/RTJ3.jpg")
 image bg north = Frame("bg/north.jpg")
 image bg restaurant = Frame("bg/taverna-banfi.jpg")
+image bg stewart = Frame("bg/stewart_park.jpg")
+image bg arts = Frame("bg/arts_quad.jpg")
 
 #sprites
 image heart = "heart.PNG"
@@ -80,4 +83,4 @@ label start:
 
     m "Alright, let me check my schedule. I forgot what class I have first."
 
-    jump AEM_Class
+    jump English_Class
