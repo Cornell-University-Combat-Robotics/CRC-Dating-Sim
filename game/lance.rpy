@@ -106,11 +106,18 @@ label lance_picnic_setup:
 
 label lance_duffield:
     m "Want to join me as I work on my pset in Duffield?"
-    show lance angry at truecenter: 
+    show lance worried at truecenter: 
         zoom 0.5
     show heartbreak at left:
         zoom 3
     l "*looks at you with disdain* what is pset darling?"
+    show lance angry at truecenter: 
+        zoom 0.5
+    show heartbreak at left:
+        zoom 3
+    n "As you explain what a pset is to Lance he grows more and more concerned before quickly getting upset"
+    l "How dare you invite me to do something so cruel and unforgiving, that sounds like torture"
+    n "Lance storms off"
     hide heartbreak
     return
 
