@@ -7,6 +7,7 @@ image lance sad = "lance/lance_sad.png"
 image lance blush = "lance/lance_blush.png"
 image lance fuckboy = "lance/lance_fuckboy.png"
 image lance cold = "lance/lance_cold.png"
+image lance coat = "lance/lance_coat.png"
 
 
 label English_Class:
@@ -326,6 +327,8 @@ label lance_2nd_date_pt2:
             show heartpoint at left:
                 zoom 3
             $ points += 1
+            show lance coat at truecenter:
+                zoom 0.5
             l "*blushing* Oh my! How suave of you my sweet."
             hide heartpoint
             jump lance_final
