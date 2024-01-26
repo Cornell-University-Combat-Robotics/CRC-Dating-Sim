@@ -245,7 +245,7 @@ label lance_leave:
 label lance_sunset_bye:
     show lance neutral at truecenter: 
         zoom 0.5
-    n "Narrator: With the sun now long gone beneath the horizon, and the blinking stars starting to appear across the sky above, you pack up the picnic and head on home."
+    n "With the sun now long gone beneath the horizon, and the blinking stars starting to appear across the sky above, you pack up the picnic and head on home."
     if points >= 2: 
         l "Why, it's getting quite late, and the night grows cold. But how could I ever be truly cold when you warm my heart as you do? *his eyes sparkle*"
         jump lance_2nd_ask
@@ -283,6 +283,7 @@ label lance_2nd_ask:
             return
 
 label lance_2nd_date:
+    scene bg sus_bridge
     n "The clocktower begins to ring the 12 chimes of midnight, and through the darkness the lights of the suspension bridge come into view. In the cold fall night, Lance stands at the center of the bridge, looking pensively over the gorge, pondering its depths, a single rose held in his hand."
     show lance neutral at truecenter: 
         zoom 0.5
@@ -359,6 +360,8 @@ label lance_final:
         menu:
             "Profess your Love!":
                 m "Oh Lance, kiss me with those sweet sensuous lips, because I LOVE you!"
+                show lance love at truecenter:
+                    zoom 0.5
                 show heartpoint at left:
                     zoom 3
                 n "His eyes sparkle with love! He leans in for a kiss. The kiss tastes metallic."

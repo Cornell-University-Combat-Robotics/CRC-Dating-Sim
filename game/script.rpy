@@ -15,6 +15,7 @@ image bg north = Frame("bg/north.jpg")
 image bg restaurant = Frame("bg/taverna-banfi.jpg")
 image bg stewart = Frame("bg/stewart_park.jpg")
 image bg arts = Frame("bg/arts_quad.jpg")
+image bg sus_bridge = Frame("bg/suspension_bridge.jpg")
 
 #sprites
 image heart = "heart.PNG"
