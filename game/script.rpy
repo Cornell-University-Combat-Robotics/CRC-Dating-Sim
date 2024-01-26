@@ -84,4 +84,10 @@ label start:
 
     m "Alright, let me check my schedule. I forgot what class I have first."
 
-    jump English_Class
+    menu:
+        "English class (Lance)":
+            jump English_Class
+        
+        "AEM class (Richard)":
+            jump AEM_Class
+
